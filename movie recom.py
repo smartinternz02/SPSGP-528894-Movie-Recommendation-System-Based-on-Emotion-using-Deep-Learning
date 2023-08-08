@@ -32,15 +32,15 @@ def predict():
         emotion=request.form['emotion']
     print(emotion)
     if(emotion == "happy"):
-        urlhere = 'http://www.imdb.com/search/title?genres=drama&title_type=feature&sort=moviemeter, asc'
+        urlhere = 'https://www.imdb.com/search/title/?genres=comedy&languages=te'
     elif(emotion == "angry"):
-        urlhere = 'http://www.imdb.com/search/title?genres=thriller&title_type=feature&sort=moviemeter, asc'
+        urlhere = 'https://www.imdb.com/search/title/?genres=drama&languages=te'
     elif(emotion == "disgust"):
-        urlhere = 'http://www.imdb.com/search/title?genres=sport&title_type=feature&sort=moviemeter, asc'
+        urlhere = 'https://www.imdb.com/search/title/?genres=horror&languages=te&sort=user_rating,desc'
     elif(emotion == "think"):
-        urlhere = 'http://www.imdb.com/search/title?genres=thriller&title_type=feature&sort=moviemeter, asc'
+        urlhere = 'https://www.imdb.com/search/title/?genres=biography&languages=te&sort=year,asc'
     elif(emotion == "sad"):
-        urlhere = 'http://www.imdb.com/search/title?genres=western&title_type=feature&sort=moviemeter, asc'
+        urlhere = 'https://www.imdb.com/search/title/?genres=thriller&languages=te&sort=moviemeter'
     response = HTTP.get(urlhere)
     data = response.text
     soup = SOUP(data, "lxml")
@@ -63,5 +63,3 @@ def predict():
 
 if __name__ == "__main__":
    app.run(debug=False) 
-
-    
